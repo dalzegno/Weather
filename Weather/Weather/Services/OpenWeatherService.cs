@@ -15,7 +15,7 @@ namespace Weather.Services
     //You replace this class witth your own Service from Project Part A
     public class OpenWeatherService
     {
-        readonly string apiKey = "8012a9abcb7e03e2b21180ce04cb1259";
+        readonly string apiKey = ""; //Your API key here
 
         public readonly ConcurrentDictionary<(string, string), Forecast> _cachedCity = new ConcurrentDictionary<(string, string), Forecast>();
         public readonly ConcurrentDictionary<((double, double), string), Forecast> _cachedGeoLoc = new ConcurrentDictionary<((double, double), string), Forecast>();
