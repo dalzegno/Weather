@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Weather.Views.SearchPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource BackgroundColor}">
+            <Label Text="Search a city and get a free forecast!"
+                   FontAttributes="Bold"
+                   TextColor="#13DB57"
+                   Style="{StaticResource HeaderLabel}"
+                   Margin="0,100,0,10"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="CityInput" WidthRequest="{StaticResource ButtonSize}" 
+                   HeightRequest="40" HorizontalOptions="Center" 
+                    FontSize="{StaticResource HeaderFontSize}" BackgroundColor="#FFC78E"
+                    ></Entry>
+            <Button Margin="10,10,10,10" Style="{StaticResource RefreshButton}" Text="Search" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

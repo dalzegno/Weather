@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Weather.Models"
+             x:Class="Weather.Views.ForecastPage"
+             >
+    
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource BackgroundColor}">
+            <Button x:Name="refresh" Text="Refresh" Clicked="refresh_Clicked" Margin="0,5,0,-2"
+                    Style="{StaticResource RefreshButton}"/>
+            <ListView x:Name="lw" IsGroupingEnabled="true" GroupDisplayBinding="{Binding Key}" 
+                      GroupShortNameBinding="{Binding Key}"
+                        HasUnevenRows="True" BackgroundColor="{StaticResource BackgroundColor}"
+                      SeparatorVisibility="None">
+
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="{OnPlatform UWP= '35', Default='25'}" >
+                            <StackLayout IsEnabled="False" VerticalOptions="Start"
+                                         Opacity="1"
+                                         BackgroundColor="{x:StaticResource HeaderBackgroundColor}" >
+                                <Label  Text="{Binding Key, StringFormat='{0: dddd, MMMM d, yyyy}'}" 
+                                        TextColor="OldLace" VerticalOptions="Center"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid x:Name="gr" BackgroundColor="{Binding bColor}">
+                                    <Label  Margin="10,0,0,0" Grid.Row="0" 
+                                            Text="{Binding dateTime, StringFormat='{0:hh:mm tt}'}"
+                                            Style="{StaticResource DescriptionLabel}" FontAttributes="Bold"
+                                            Opacity="0.5"></Label>
+                                    <Label  Margin="10,-10,0,10" Grid.Row ="1" Style="{StaticResource DescriptionLabel}"
+                                            Text="{Binding ., StringFormat='{0:C}'}"></Label>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
